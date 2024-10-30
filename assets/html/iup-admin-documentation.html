@@ -1,0 +1,33 @@
+<?php include __DIR__ . '/messages.html'; ?>
+
+<div class="wrap">
+    <?php include __DIR__ . '/tabs.html'; ?>
+
+    <h2><?php echo __("CRON", 'menu' ) ?></h2>
+    <p><i><?php echo __("Align the CRON in to your hoster. This should be called all about every 5 minutes. CRON URL:", 'menu' ) ?></i><br><?php echo get_site_url(); ?>/?do-ionic-user-cron</p>
+    <h2><?php echo __("APP actions", 'menu' ) ?></h2>
+    <p><i><?php echo __("Url to call from your app:", 'menu' ) ?></i><br><?php echo get_site_url(); ?>/?ionic-user-id={user-id}&action={action}</p>
+    <h3><?php echo __("Json return values", 'menu' ) ?></h3>
+    <i><?php echo __("On success:", 'menu' ) ?></i> {"success":true}<br>
+    <i><?php echo __("On error:", 'menu' ) ?></i> {"success":false, "error":"Message"}<br>
+    <h3><?php echo __("Actions", 'menu' ) ?></h3>
+    <table class="wp-list-table widefat striped">
+        <thead>
+            <tr>
+                <th scope="col" class="manage-column"><?php echo __("Action", 'menu' ) ?></th>
+                <th scope="col" class="manage-column column-primary"><?php echo __("Description", 'menu' ) ?></th>
+            </tr>
+        </thead>
+
+        <tbody id="the-comment-list">
+            <tr>
+                <td class="colspanchange"><?php echo __("store", 'menu' ) ?></td>
+                <td class="colspanchange"><?php echo __("Store the ionic user id for this plugin", 'menu' ) ?></td>
+            </tr>
+            <tr>
+                <td class="colspanchange"><?php echo __("delete", 'menu' ) ?></td>
+                <td class="colspanchange"><?php echo __("Delete the ionic user id for this plugin", 'menu' ) ?></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

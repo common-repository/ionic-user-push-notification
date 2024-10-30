@@ -1,0 +1,33 @@
+<?php include __DIR__ . '/messages.html'; ?>
+
+<div class="wrap">
+    <?php include __DIR__ . '/tabs.html'; ?>
+    <h2><?php echo __("History of push notifications", 'menu' ) ?></h2><br>
+    <table class="wp-list-table widefat striped">
+        <thead>
+            <tr>
+                <th scope="col" class="manage-column"><b><?php echo __("Date", 'menu' ) ?></b></th>
+                <th scope="col" class="manage-column column-primary"><b><?php echo __("Text", 'menu' ) ?></b></th>
+                <th scope="col" class="manage-column column-primary"><b><?php echo __("Recipients", 'menu' ) ?></b></th>
+                <th scope="col" class="manage-column column-primary"><b><?php echo __("Result", 'menu' ) ?></b></th>
+            </tr>
+        </thead>
+
+        <tbody id="the-comment-list">
+            <?php foreach ($historyPages['results'] as $result) { ?>
+            <tr>
+                <td class="colspanchange"><?php echo $result->send ?></td>
+                <td class="colspanchange"><?php echo $result->text ?></td>
+                <td class="colspanchange"><?php echo $result->recipients ?></td>
+                <td class="colspanchange"><?php echo $result->result ?></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <?php
+    if ( $historyPages['paginate_links'] ) {
+        echo '<div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0">' . $historyPages['paginate_links'] . '</div></div>';
+    }
+    ?>
+</div>

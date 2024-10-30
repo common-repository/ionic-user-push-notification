@@ -1,0 +1,26 @@
+<?php include __DIR__ . '/messages.html'; ?>
+
+<div class="wrap">
+    <?php include __DIR__ . '/tabs.html'; ?>
+    <h2><?php echo __("Send push notification", 'menu' ) ?></h2>
+    <form name="form1" method="post" action="">
+        <table class="form-table">
+            <tr>
+                <th scope="row"><b><?php echo __("Text", 'menu' ) ?></b></th>
+                <td>
+                    <textarea name="send-text" class="large-text"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><b><?php echo __("Ionic user id(s)", 'menu' ) ?></b></th>
+                <td>
+                    <textarea name="send-user-ids" class="large-text" placeholder="user-id-1;user-id-2;user-id-3;..."></textarea><br>
+                    <input type="checkbox" name="send-to-all"> <?php printf(__("Or send push notification to all (<b>%d</b>) ionic user ids", 'menu' ), $totalUserIds) ?>
+                </td>
+            </tr>
+        </table>
+        <p class="submit">
+            <input type="submit" name="send-push" class="button button-primary" value="<?php echo esc_attr('Send push notification') ?>" />
+        </p>
+    </form>
+</div>

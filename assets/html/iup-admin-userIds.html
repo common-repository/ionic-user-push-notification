@@ -1,0 +1,31 @@
+<?php include __DIR__ . '/messages.html'; ?>
+
+<div class="wrap">
+    <?php include __DIR__ . '/tabs.html'; ?>
+    <h2><?php echo __("List of stored ionic user ids", 'menu' ) ?></h2><br>
+    <table class="wp-list-table widefat striped">
+        <thead>
+            <tr>
+                <th scope="col" class="manage-column"><b><?php echo __("Ionic user id", 'menu' ) ?></b></th>
+                <th scope="col" class="manage-column column-primary"><b><?php echo __("Created", 'menu' ) ?></b></th>
+                <th scope="col" class="manage-column column-primary"><b><?php echo __("Last touched", 'menu' ) ?></b></th>
+            </tr>
+        </thead>
+
+        <tbody id="the-comment-list">
+            <?php foreach ($userIdsPages['results'] as $result) { ?>
+            <tr>
+                <td class="colspanchange"><?php echo $result->userId ?></td>
+                <td class="colspanchange"><?php echo $result->created ?></td>
+                <td class="colspanchange"><?php echo $result->lastTouched ?></td>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+
+    <?php
+    if ( $userIdsPages['paginate_links'] ) {
+        echo '<div class="tablenav"><div class="tablenav-pages" style="margin: 1em 0">' . $userIdsPages['paginate_links'] . '</div></div>';
+    }
+    ?>
+</div>

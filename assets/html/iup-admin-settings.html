@@ -1,0 +1,40 @@
+<?php include __DIR__ . '/messages.html'; ?>
+
+<div class="wrap">
+    <?php include __DIR__ . '/tabs.html'; ?>
+    <h2><?php echo __("Set basic settings", 'menu' ) ?></h2>
+    <form name="form1" method="post" action="">
+        <table class="form-table">
+            <tr>
+                <th scope="row"><b><?php echo __("App id", 'menu' ) ?></b></th>
+                <td>
+                    <input type="text" name="appId" class="regular-text" placeholder="fb0dff48" value="<?php echo stripslashes($options['appId']) ?>">
+                    <p class="description"><?php echo __("You can find this information on the ionic dashboard https://apps.ionic.io/apps", 'menu' ) ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><b><?php echo __("Private api key", 'menu' ) ?></b></th>
+                <td>
+                    <input type="text" name="privateApiKey" class="regular-text" placeholder="44dc2a6bfafc7000dfe11e3d65fff08f624674acbda620bb" value="<?php echo stripslashes($options['privateApiKey']) ?>">
+                    <p class="description"><?php echo __("You can find this information in the settings of your ionic app", 'menu' ) ?></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><b><?php echo __("Send push for new post", 'menu' ) ?></b></th>
+                <td>
+                    <input type="checkbox" name="sendNewPost" class="regular-checkbox" value="1" <?php if ((bool) $options['sendNewPost']) echo 'checked'; ?>> <?php echo __("Send push notifictation to all ionic user ids for new posts", 'menu' ) ?>
+                    <p class="description"></p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row"><b><?php echo __("Send push for post update", 'menu' ) ?></b></th>
+                <td>
+                    <input type="checkbox" name="sendUpdatePost" class="regular-checkbox" value="1" <?php if ((bool) $options['sendUpdatePost']) echo 'checked'; ?>> <?php echo __("Send push notifictation to all ionic user ids for post updates", 'menu' ) ?>
+                </td>
+            </tr>
+        </table>
+        <p class="submit">
+            <input type="submit" name="Submit" class="button button-primary" value="<?php echo esc_attr('Speichern') ?>" />
+        </p>
+    </form>
+</div>
